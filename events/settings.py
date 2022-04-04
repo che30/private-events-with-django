@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Accounts',
     'personal',
+    'userevents',
 ]
 AUTH_USER_MODEL = 'Accounts.Account'
 MIDDLEWARE = [
