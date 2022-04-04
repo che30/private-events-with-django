@@ -52,14 +52,19 @@ class Account(AbstractUser):
   def get_profile_image_filename(self):
     return str(self.profile_image)[str(self.profile_image).index('profile_images/' + str(self.pk) + "/"):]
   def __str__(self):
-    return self.username
+    return self.username + self.email
   def has_perm(self, perm, obj=None):
     return self.is_admin
   def has_module_perms(self, app_label):
     return True
-class Events(models.Model):
-  name = models.CharField(max_length=32)
-  description = models.TextField(max_length=100)
-  schedule_date = models.DateTimeField(verbose_name="schedule date")
+class Event(models.Model):
+  name = models.CharField(max_length=50, null=False)
+  description = models.TextField(max_length=300, null=False)
+  schedule_date = models.DateTimeField(verbose_name="schedule date", null=False)
   def __str__(self):
-    return self.name         
+    return self.name
+class Attendance(models.Model):
+  account = models.ForeignKey(Account, on_delete=models.CASCADE)
+  event = models.ForeignKey(Event, on_delete=models.CASCADE)
+  def __str__(self):
+    return str(self.event) + " " + str(self.account)

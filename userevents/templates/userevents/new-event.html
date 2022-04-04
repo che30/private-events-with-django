@@ -9,17 +9,11 @@
 
 				<input type="text" name="description" id="inputDescription" class="form-control" placeholder="description" required>
 
-				<input type="date" name="date" id="inputDate" class="form-control" placeholder="Date" required>
+				<input type="datetime-local" name="schedule_date" id="inputDate" class="form-control" placeholder="Date" required>
 
 				
 
-				{% for field in events_form %}
-				<p>
-				{% for error in field.errors %}
-				<p style="color: red">{{ error }}</p>
-				{% endfor %}
-				</p>
-				{% endfor %}
+		
 				{% if events_form.non_field_errors %}
 				<div style="color: red">
 					<p>{{events_form.non_field_errors}}</p>
