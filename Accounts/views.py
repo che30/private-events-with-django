@@ -50,9 +50,6 @@ def login_view(request, *args, **kwargs):
 	if request.POST:
 		form = LoginForm(request.POST)
 		if form.is_valid():
-			print("in login ")
-			cleanedF = form.clean()
-			print(cleanedF)
 			email = request.POST['email']
 			password = request.POST['password']
 			user = authenticate(email=email, password=password)

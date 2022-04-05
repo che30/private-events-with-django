@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'Accounts',
     'personal',
     'userevents',
+    'attendance',
 ]
 AUTH_USER_MODEL = 'Accounts.Account'
 MIDDLEWARE = [

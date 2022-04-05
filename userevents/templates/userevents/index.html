@@ -4,7 +4,12 @@
 <!-- <div>
   {{request.user}}
 </div> -->
+{% if events|length > 0%}
+<!-- <div>{{subscribed}}</div> -->
   {% for event in events %}
   <div><a class="text-decoration-none" href="{% url 'event-detail' event.id  %}">{{ event }}</a>  </div>
   {% endfor %}
+  {%else%}
+  <div>No events yets</div>
+  {% endif %}
 {% endblock content %}
