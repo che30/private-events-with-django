@@ -34,6 +34,8 @@ def all_events_view(request):
   # context['subscribed'] = subscribed
   return render(request,'userevents/index.html', context)
 def event_detail_view(request, event_id):
+  if request.user.is_authenticated == False:
+    return redirect('login')
   form = AttendanceForm()
   account_instance = Account.objects.get(pk=request.user.id)
   context = {}
