@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y4+oap-8slk0w=@)$_^xs71@+o*0+ivle-yx7n%xz#+(4cza5a
 # SECURITY WARNING: don't run with debug turned on in production!
 if "DYNO" in os.environ:
     STATIC_ROOT = 'static'
-    # ALLOWED_HOSTS = ['example.herokuapp.com']
+    ALLOWED_HOSTS = ['*']
     DEBUG = False
 # DEBUG = True
 
