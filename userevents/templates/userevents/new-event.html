@@ -4,7 +4,7 @@
 	<div class="row justify-content-center">
 		<div class="card card-signin">
 		  <div class="card-body">
-		    <form class="form-signin" method="post">{% csrf_token %}
+		    <form action="{% url 'new-event' %}" class="form-signin" method="post">{% csrf_token %}
 				<input type="text" name="name" id="inputName" class="form-control" placeholder="name" required autofocus>
 
 				<input type="text" name="description" id="inputDescription" class="form-control" placeholder="description" required>

@@ -1,6 +1,7 @@
-from django import forms 
+from django.forms import ModelForm
+from django import forms
 from Accounts.models import Attendance
-class AttendanceForm(forms.ModelForm):
+class AttendanceForm(ModelForm):
   class Meta:
     model = Attendance
     fields = ('account', 'event')

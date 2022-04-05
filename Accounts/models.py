@@ -58,7 +58,7 @@ class Account(AbstractUser):
   def has_module_perms(self, app_label):
     return True
 class Event(models.Model):
-  name = models.CharField(max_length=50, null=False)
+  name = models.CharField(max_length=32, null=False)
   description = models.TextField(max_length=300, null=False)
   schedule_date = models.DateTimeField(verbose_name="schedule date", null=False)
   def __str__(self):
