@@ -25,11 +25,15 @@ SECRET_KEY = 'django-insecure-y4+oap-8slk0w=@)$_^xs71@+o*0+ivle-yx7n%xz#+(4cza5a
 # SECURITY WARNING: don't run with debug turned on in production!
 if "DYNO" in os.environ:
     STATIC_ROOT = 'static'
-    ALLOWED_HOSTS = ['myevents-django.herokuapp.com']
-    DEBUG = False
+    # ALLOWED_HOSTS = ['myevents-django.herokuapp.com']
+    # SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-y4+oap-8slk0w=@)$_^xs71@+o*0+ivle-yx7n%xz#+(4cza5a')  
+    # EMAIL_HOST_PASSWORD = os.environ.get('che.blancoo58@gmail.comht14a06411u')
+DEBUG = False
+ALLOWED_HOSTS = ['myevents-django.herokuapp.com']
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-y4+oap-8slk0w=@)$_^xs71@+o*0+ivle-yx7n%xz#+(4cza5a')  
+EMAIL_HOST_PASSWORD = os.environ.get('che.blancoo58@gmail.comht14a06411u')
 # DEBUG = True
-
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -91,8 +95,10 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
+DATABASES['default']['CONN_MAX_AGE'] = 500
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
