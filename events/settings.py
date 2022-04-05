@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'events',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'HOST': 'myevents-django.herokuapp.com',
         'PORT': '5432',
     }
 }
